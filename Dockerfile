@@ -3,7 +3,7 @@
 #Starting image
 FROM ubuntu
 
-#Install of Anaconda2-4.3.1 (from docker anaconda)
+#Install of Anaconda2-4.3.1 (from docker anaconda : https://github.com/ContinuumIO/docker-images/tree/master/anaconda)
 
 RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificates \
     libglib2.0-0 libxext6 libsm6 libxrender1 \
@@ -25,10 +25,10 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN conda update conda -y
 
-#Sentinelsat  install
+#Sentinelsat  install (https://github.com/ibamacsr/sentinelsat)
 RUN pip install sentinelsat
 
-#Sen2cor install
+#Sen2cor install (from lvhengani : https://github.com/lvhengani/sen2cor_docker)
 ENV SEN2COR_VERSION='2.3.1'
 RUN wget http://step.esa.int/thirdparties/sen2cor/${SEN2COR_VERSION}/sen2cor-${SEN2COR_VERSION}.tar.gz && \
     tar -xvzf sen2cor-${SEN2COR_VERSION}.tar.gz && \
