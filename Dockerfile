@@ -35,7 +35,12 @@ RUN wget http://step.esa.int/thirdparties/sen2cor/${SEN2COR_VERSION}/sen2cor-${S
     cd sen2cor-${SEN2COR_VERSION} && \
     /bin/echo -e "y\ny\ny\n" | python setup.py install
 	
-RUN	rm sen2cor-2.3.1.tar.gz && rm -r /sen2cor-2.3.1
+RUN	rm sen2cor-${SEN2COR_VERSION}.tar.gz && rm -r /sen2cor-${SEN2COR_VERSION}
+
+#Path environment variables for sen2cor
+ENV SEN2COR_HOME=/root/sen2cor
+ENV SEN2COR_BIN=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor 
+ENV GDAL_DATA=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor/cfg/gdal_data 
 	
 ADD Aarhus.geojson /media/
 
