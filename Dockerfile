@@ -3,7 +3,7 @@
 #Starting image
 FROM ubuntu
 
-#Install of Anaconda2-4.3.1 (from docker anaconda : https://github.com/ContinuumIO/docker-images/tree/master/anaconda)
+#Install of Anaconda2-4.2.0 (from docker anaconda : https://github.com/ContinuumIO/docker-images/tree/master/anaconda)
 
 RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificates \
     libglib2.0-0 libxext6 libsm6 libxrender1 \
@@ -23,7 +23,9 @@ RUN apt-get install -y curl grep sed dpkg && \
 
 ENV PATH /opt/conda/bin:$PATH
 
-#RUN conda update conda -y
+RUN conda update conda -y
+
+RUN apt-get install -y zip
 
 #Sentinelsat  install (https://github.com/ibamacsr/sentinelsat)
 RUN pip install sentinelsat
