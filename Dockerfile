@@ -43,4 +43,30 @@ RUN	rm sen2cor-${SEN2COR_VERSION}.tar.gz && rm -r /sen2cor-${SEN2COR_VERSION}
 ENV SEN2COR_HOME=/root/sen2cor
 ENV SEN2COR_BIN=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor
 ENV GDAL_DATA=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor/cfg/gdal_data
-	
+
+RUN DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends iproute2 apache2 php7.0 libapache2-mod-php7.0 \
+        php7.0-mysql php7.0-sqlite php7.0-bcmath php7.0-curl ca-certificates && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/* && \
+    echo "ServerName $(ip route get 8.8.8.8 | awk '{print $NF; exit}')" >> /etc/apache2/apache2.conf && \
+    a2enmod php7.0 && \
+    a2enmod rewrite && \
+    sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
+
+RUN ln -sf /dev/stdout /var/log/apache2/access.log \
+	&& ln -sf /dev/stderr /var/log/apache2/error.log
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_LOCK_DIR /var/lock/apache2
+ENV APACHE_PID_FILE /var/run/apache2.pid
+
+#WORKDIR /var/www/html
+
+#EXPOSE 80
+
+CMD /usr/sbin/apache2ctl -D FOREGROUND
