@@ -66,7 +66,13 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
-#Allow Apache to use sen2cor
-RUN chown www-data:www-data /opt/conda/lib/python2.7/site-packages/sen2cor-2.3.1-py2.7.egg/
+#Allow PHP to use sen2cor
+RUN chown www-data:www-data /opt/conda/lib/python2.7/site-packages/sen2cor-2.3.1-py2.7.egg/ && \
+    chown www-data:www-data /root/  && \
+    chown www-data:www-data /root/sen2cor/
+
+# Adding modified configuration files to allow Apache to access env variables from Sen2cor
+ADD ./conf_files/environment /etc/
+ADD ./conf_files/envvars /etc/apache2/
 
 #CMD /usr/sbin/apache2ctl -D FOREGROUND
