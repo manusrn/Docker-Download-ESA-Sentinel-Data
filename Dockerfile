@@ -39,11 +39,12 @@ RUN wget http://step.esa.int/thirdparties/sen2cor/${SEN2COR_VERSION}/sen2cor-${S
 
 RUN	rm sen2cor-${SEN2COR_VERSION}.tar.gz && rm -r /sen2cor-${SEN2COR_VERSION}
 
-#Path environment variables for sen2cor
+#Path environment variables for sen2cor to allow use of sen2cor in command lines, useless with webpage
 ENV SEN2COR_HOME=/root/sen2cor
 ENV SEN2COR_BIN=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor
 ENV GDAL_DATA=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor/cfg/gdal_data
 
+#Install of Apache2 , PHP7 and MySQL
 RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get upgrade -y && \
@@ -66,7 +67,7 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
-#Allow PHP to use sen2cor
+#Allow PHP to use sen2cor, repositories where sen2cor has to write logs
 RUN chown www-data:www-data /opt/conda/lib/python2.7/site-packages/sen2cor-2.3.1-py2.7.egg/ && \
     chown www-data:www-data /root/  && \
     chown www-data:www-data /root/sen2cor/
