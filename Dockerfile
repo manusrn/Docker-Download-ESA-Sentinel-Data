@@ -54,6 +54,7 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     echo "ServerName $(ip route get 8.8.8.8 | awk '{print $NF; exit}')" >> /etc/apache2/apache2.conf && \
     a2enmod php7.0 && \
     a2enmod rewrite && \
+    a2enmod env && \
     sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
 
 RUN ln -sf /dev/stdout /var/log/apache2/access.log \
@@ -65,4 +66,7 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
-CMD /usr/sbin/apache2ctl -D FOREGROUND
+#Allow Apache to use sen2cor
+RUN chown www-data:www-data /opt/conda/lib/python2.7/site-packages/sen2cor-2.3.1-py2.7.egg/
+
+#CMD /usr/sbin/apache2ctl -D FOREGROUND
