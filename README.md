@@ -24,7 +24,7 @@ $docker run -p $port_on_host:$port_on container $IMAGE_NAME
 
 *ex : docker run -p 8888:80 ubuntu-w-Anaconda-sentinelsat-and-sen2cor*
 
-## To link  repository on the host to a repository inside the container :
+## To link  repository on the host to a repository inside the container (with good permissions):
 
 Add to the previous line : -v /path_on_host:/path_in_container
 
