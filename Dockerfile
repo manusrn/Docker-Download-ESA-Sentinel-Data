@@ -79,5 +79,8 @@ ADD ./conf_files/envvars /etc/apache2/
 #Move php files to apache repo
 COPY ./web_page  /var/www/html/
 RUN rm /var/www/html/index.html
+RUN chown www-data:www-data /var/www/html/ && \
+    mkdir /var/www/html/downloads  && \
+    chown www-data:www-data /var/www/html/downloads/
 
 #CMD /usr/sbin/apache2ctl -D FOREGROUND
