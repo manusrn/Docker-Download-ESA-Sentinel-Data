@@ -76,4 +76,8 @@ RUN chown www-data:www-data /opt/conda/lib/python2.7/site-packages/sen2cor-2.3.1
 ADD ./conf_files/environment /etc/
 ADD ./conf_files/envvars /etc/apache2/
 
+#Move php files to apache repo
+COPY ./web_page  /var/www/html/
+RUN rm /var/www/html/index.html
+
 #CMD /usr/sbin/apache2ctl -D FOREGROUND
