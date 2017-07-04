@@ -1,0 +1,43 @@
+
+
+body
+{
+  background-image: url('images/earth.jpg');
+  background-size: 100%;
+  color: white;
+}
+#principal_title
+{
+  color: white;
+}
+
+header
+{
+  display: flex;
+  height: 100px ;
+}
+section
+{
+  display: flex;
+}
+section article
+{
+  border: solid;
+  border-color: gray;
+  background-color: gray;
+  border-radius: 10px;
+  margin: auto;
+  width: 40%;
+  text-align: justify;
+}
+#interactive_part
+{
+  color: black;
+  border: solid;
+  border-color: white;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  width: 40%;
+  text-align: center;
+}
