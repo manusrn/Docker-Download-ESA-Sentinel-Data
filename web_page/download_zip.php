@@ -20,8 +20,8 @@
 
           //Creating the user depository, with the format date_username
           $user = $_POST["username"];
-          //$date = date("Y-m-d-h-i-s");
-          $date = "0000-00-00-00-00-00" ;
+          $date = date("Y-m-d-h-i-s");
+          //$date = "0000-00-00-00-00-00" ;  // usefull for testing
           $userfolder = $date."_".$user ;
           $depository = "/var/www/html/downloads/$userfolder";
           mkdir($depository);
@@ -49,7 +49,7 @@
           for ($x = 0; $x <= $nb_files ; $x++){// check for every file or depository in the folder $depository
             // check if the file is a L1C product and is NOT a zip file
             if ((strpos($files_list[$x], 'MSIL1C') !== false )&&(strpos($files_list[$x], 'zip') === false)){
-              shell_exec("/opt/conda/bin/L2A_Process --resolution=60 $depository/$files_list[$x] 2>&1");
+              shell_exec("/opt/conda/bin/L2A_Process $depository/$files_list[$x] 2>&1");
               shell_exec("rm -r $depository/$files_list[$x] 2>&1"); // rm the L1C product
             }
           }
@@ -59,7 +59,6 @@
           for ($x = 0; $x <= $nb_files ; $x++){// check for every file or depository in the folder $depository
             // check if the file is a L1C product and is NOT a zip file
             if ((strpos($files_list[$x], 'MSIL2A') !== false )&&(strpos($files_list[$x], 'zip') === false)){
-              //echo shell_exec("/usr/bin/zip -r  $depository/$files_list[$x].zip  $depository/.$files_list[$x]  -d $depository 2>&1");
               shell_exec("/usr/bin/zip -r  $depository/$files_list[$x].zip  $depository/$files_list[$x]  2>&1");
               shell_exec("rm -r $depository/$files_list[$x] 2>&1"); // rm the L2A product depository
             }
