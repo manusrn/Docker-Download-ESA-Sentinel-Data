@@ -40,7 +40,7 @@
           $username = $_POST["username"];
           echo "username = $username <br />";
           $password = $_POST["password"];
-          echo "password = $password <br />";
+          echo "password = hidden <br />";
           $startdate = $_POST["startdate"];
           if($startdate == NULL){
             $startdate = "" ;
@@ -88,6 +88,7 @@
           }
 
           $cmd_search = "/opt/conda/bin/sentinel search "." ".$sat." ".$startdate." ".$enddate." ".$producttype." ".$cloud." ".$username." ".$password." ".$area ;
+          $cmd_log = "/opt/conda/bin/sentinel search "." ".$sat." ".$startdate." ".$enddate." ".$producttype." ".$cloud." ".$username." password ".$area ;
 
           $output = shell_exec($cmd_search.' 2>&1');
           echo "<br /> <br />";
@@ -100,7 +101,7 @@
             echo "<br />Possible sources of error: <br />- username or password missing or incorrect <br />- date format incorrect <br />- Selection of cloud percentage is not possible with sentinel 1 <br />- product type format incorrect <br />- product type incompatible with chosen satellite";
             //write the cmd and the raw error in the log file
             $log = fopen("log_search.txt","a");
-            $txt = $cmd_search.' '. $output ;
+            $txt = $cmd_log.' '. $output ;
             fwrite($log , $txt) ;
             fclose($log);
           }
@@ -112,11 +113,11 @@
             echo $new_output ;
             //writing in the log file
             $log = fopen("log_search.txt","a");
-            $txt = $cmd_search.' '. $output ;
+            $txt = $cmd_log.' '. $output ;
             fwrite($log , $txt) ;
             fclose($log);
 
-            //$cmd_download ="/opt/conda/bin/sentinel search -d -p ./downloads"." ".$sat." ".$startdate." ".$enddate." ".$cloud." ".$username." ".$password." ".$area ;
+            //save the infos needed to launch download
             $cmd_download = $sat." ".$startdate." ".$enddate." ".$cloud." ".$username." ".$password." ".$area ;
 
             ?>

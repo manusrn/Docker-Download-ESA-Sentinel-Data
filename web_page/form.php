@@ -14,7 +14,7 @@
             <label for="area">Area in geojson format, name without spaces *</label> :<input type="file" name="area" /><br />
             <label for="username">Your username *</label> : <input type="text" name="username" id="username" />
           </br>
-            <label for="password">Your password *</label> : <input type="text" name="password" id="password" />
+            <label for="password">Your password *</label> : <input type="password" name="password" id="password" />
           </br>
             <label for="startdate">Start date ( yyyymmdd )</label> : <input type="text" name="startdate" id="startdate" placeholder="ex : 20171225"/>
           </br>
