@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style.css" />
-        <style> a {color: #00e8ff;}</style>
         <title>Download Sentinel Data</title>
     </head>
 

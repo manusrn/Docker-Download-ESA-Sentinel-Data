@@ -1,37 +1,33 @@
+a { color: #00e8ff; }
 
-
-body
-{
+body {
   background-image: url('images/earth.jpg');
   background-size: 100%;
   color: white;
 }
-#principal_title
-{
+#principal_title {
   color: white;
 }
 
-header
-{
+header {
   display: flex;
   height: 100px ;
 }
-section
-{
+section {
   display: flex;
 }
-section article
-{
+section article {
   border: solid;
   border-color: gray;
   background-color: gray;
   border-radius: 10px;
-  margin: auto;
   width: 40%;
   text-align: justify;
+  overflow: auto ;
+  padding: 3px ;
+  margin: auto;
 }
-#interactive_part
-{
+#interactive_part {
   color: black;
   border: solid;
   border-color: white;
@@ -41,3 +37,4 @@ section article
   width: 40%;
   text-align: center;
 }
+.focus:focus {color: #14ff00;}
