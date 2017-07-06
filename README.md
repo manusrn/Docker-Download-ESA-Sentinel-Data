@@ -12,6 +12,10 @@ Added Sen2cor processing from lvhengani : https://github.com/lvhengani/sen2cor_d
 
 Added Apache2 and PHP7 from https://github.com/tagplus5/docker-php/tree/master/7-apache
 
+## Install of Docker :
+
+You can find tutorials about installation and use of Docker here : https://docs.docker.com/
+
 ## Build the Docker image:
 -download repository
 
