@@ -31,6 +31,8 @@
           shell_exec($cmd.' 2>&1');
           echo "<br /> <br />";
 
+          //Comment from here to "end comment" if Sen2cor doesn't work
+
           //unzipping of the L1C files in downloads
           $files_list = scandir($depository);
           $nb_files = count($files_list);
@@ -69,6 +71,9 @@
               shell_exec("rm -r $depository/$parentfold 2>&1"); // rm the L2A product parent depository
             }
           }
+
+          //end comment if Sen2cor doesn't work
+
         echo "<br /> <br />All the files have been donwloaded and processed. You can find them in Downloaded Products <br /><br />";
 
         ?>

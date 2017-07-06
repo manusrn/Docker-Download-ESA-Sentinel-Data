@@ -42,6 +42,8 @@
             }
 
           }
+          //Comment from here to "end comment" if Sen2cor doesn't work
+
           // sen2cor Processing of L1C products
           $files_list = scandir($depository);// scan the depository again to see all the unziped files
           $nb_files = count($files_list);
@@ -52,6 +54,7 @@
               shell_exec("rm -r $depository/$files_list[$x]");// rm the L1C depository
             }
           }
+          //end comment (if sen2cor doesn't work)
 
           echo "<br /> <br />All the files have been donwloaded and processed. You can find them in Downloaded Products <br /> <br />";
         ?>
