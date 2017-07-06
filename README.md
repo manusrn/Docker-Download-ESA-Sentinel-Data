@@ -23,13 +23,13 @@ Added Apache2 and PHP7 from https://github.com/tagplus5/docker-php/tree/master/7
 
 `$docker run -d -p $port_on_host:$port_on container $IMAGE_NAME`
 
-*ex : docker run -d -p 8888:80 ubuntu-w-Anaconda-sentinelsat-and-sen2cor*
+*ex : `docker run -d -p 8888:80 download-ESA-Sentinel-Data`*
 
 ## To link  repository on the host to a repository inside the container (with good permissions):
 
 Add to the previous line : `-v /path_on_host:/path_in_container` 
 
-*ex :  docker run -p 8888:80 -v /c/Users/doc:/media/products  ubuntu-w-Anaconda-sentinelsat-and-sen2cor*
+*ex :  `docker run -p 8888:80 -v /c/Users/doc:/media/products  download-ESA-Sentinel-Data`*
 
 If one of the repostories doesn't exist, it will be created. Otherwise, everything inside host repository will be accessible in container repository, and vice-versa.
 
@@ -45,7 +45,7 @@ The webpage is build with PHP, all the process are executed from the PHP files. 
 
 In your browser, enter the IP address or name of the host sytem ( where the container is launched ) , and the number of the port you have chosen :
 
-If you have use the command `docker run -d -p 8888:80 ubuntu-w-Anaconda-sentinelsat-and-sen2cor` on a host with IP address : 192.168.99.100 , in your browser enter `192.168.99.100:8888` to access the webpage.
+If you have use the command `docker run -d -p 8888:80 download-ESA-Sentinel-Data` on a host with IP address : 192.168.99.100 , in your browser enter `192.168.99.100:8888` to access the webpage.
 
 ![webpage_home](https://github.com/manusrn/img/blob/master/webpage_home.png)
 
