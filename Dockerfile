@@ -83,4 +83,4 @@ RUN chown www-data:www-data /var/www/html/ && \
     mkdir /var/www/html/downloads  && \
     chown www-data:www-data /var/www/html/downloads/
 
-#CMD /usr/sbin/apache2ctl -D FOREGROUND
+CMD /usr/sbin/apache2ctl -D FOREGROUND
