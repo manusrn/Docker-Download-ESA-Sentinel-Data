@@ -17,7 +17,7 @@ Added Apache2 and PHP7 from https://github.com/tagplus5/docker-php/tree/master/7
 
 -go in the repo and launch docker
 
-$docker build -t $IMAGE_NAME .
+`$docker build -t $IMAGE_NAME .`
 
 ## using the docker container :
 
