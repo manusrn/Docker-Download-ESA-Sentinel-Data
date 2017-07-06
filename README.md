@@ -27,15 +27,17 @@ Added Apache2 and PHP7 from https://github.com/tagplus5/docker-php/tree/master/7
 
 ## To link  repository on the host to a repository inside the container (with good permissions):
 
-Add to the previous line : `-v /path_on_host:/path_in_container` 
-
-*ex :  `docker run -p 8888:80 -v /c/Users/doc:/media/products  download-ESA-Sentinel-Data`*
-
-If one of the repostories doesn't exist, it will be created. Otherwise, everything inside host repository will be accessible in container repository, and vice-versa.
-
 If you want to link a host repository to the container, the host repository needs to have the correct permissions. Use the command (on Linux ) :
 
 `chown www-data:www-data  /path/to/host/repository`
+
+Add to the previous line : `-v /path/to/host/repository:/path_in_container` using `/var/www/html/downloads` as /path_in_container
+
+*ex :  `docker run -p 8888:80 -v /c/Users/doc:/var/www/html/downloads  download-ESA-Sentinel-Data`*
+
+Using a host repository will act as a data storage for all the download you will launch from the webpage. If you don't use a host repository, all the data you will have download will be deleted if you erase the container.
+
+
 
 # Webpage
 
@@ -57,3 +59,4 @@ Once you will have press the `Submit` button, you will access this page :
 
 ![webpage_search](https://github.com/manusrn/img/blob/master/webpage_search.png)
 
+Once the download and process of the images is done, a folder with your username and the date will have been created, with the products you have downloaded inside.
