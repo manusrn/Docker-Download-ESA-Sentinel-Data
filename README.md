@@ -1,7 +1,8 @@
-# Docker-Ubuntu-w-Anaconda-sentinelsat-and-sen2cor
-Docker unbuntu-based able to run sentinelsat and sen2cor
+# Docker-Download-ESA-Sentinel-Data
 
-Docker container based on ubuntu, added full Anaconda2 to run ESA Sen2cor processing
+This docker image allows you to download satellite images from ESA's sentinels. When launced, it display  webpage on the port of your choice, that allows you to search and download sentinel products, based on type, area and date.
+
+Docker container based on ubuntu 16.04, added full Anaconda2 to run ESA Sen2cor processing
 
 Added Anaconda2 from docker anaconda : https://github.com/ContinuumIO/docker-images/tree/master/anaconda
 
@@ -31,3 +32,5 @@ Add to the previous line : -v /path_on_host:/path_in_container
 *ex :  docker run -p 8888:80 -v /c/Users/doc:/media/products  ubuntu-w-Anaconda-sentinelsat-and-sen2cor*
 
 If one of the repostories doesn't exist, it will be created. Otherwise, everything inside host repository will be accessible in container repository, and vice-versa.
+
+If you want to link a host repository to the container, the host repository needs to have the correct permissions.
