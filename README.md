@@ -49,3 +49,7 @@ If you have use the command `docker run -d -p 8888:80 ubuntu-w-Anaconda-sentinel
 
 ![webpage_home](https://github.com/manusrn/img/blob/master/webpage_home.png)
 
+Once you will have press the `Submit` button, you will access this page :
+
+![webpage_search](https://github.com/manusrn/img/blob/master/webpage_search.png)
+
