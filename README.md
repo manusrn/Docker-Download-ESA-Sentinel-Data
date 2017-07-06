@@ -21,11 +21,13 @@ You can find tutorials about installation and use of Docker here : https://docs.
 
 -go in the repo and launch docker
 
-`$docker build -t $IMAGE_NAME .`
+`docker build -t $IMAGE_NAME .`
+
+*ex : `docker build -t download-ESA-Sentinel-Data .`*
 
 ## using the docker container :
 
-`$docker run -d -p $port_on_host:$port_on container $IMAGE_NAME`
+`docker run -d -p $port_on_host:$port_on container $IMAGE_NAME`
 
 *ex : `docker run -d -p 8888:80 download-ESA-Sentinel-Data`*
 
