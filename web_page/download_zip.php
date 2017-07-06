@@ -78,7 +78,7 @@
 
         ?>
 
-        <a href="downloads/<?php echo $userfolder ?>"><strong>Downloaded Products</strong></a>
+        <a target="_blank" href="downloads/<?php echo $userfolder ?>"><strong>Downloaded Products</strong></a>
 
      </div>
 

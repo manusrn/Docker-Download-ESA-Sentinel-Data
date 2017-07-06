@@ -59,7 +59,7 @@
           echo "<br /> <br />All the files have been donwloaded and processed. You can find them in Downloaded Products <br /> <br />";
         ?>
 
-        <a href="downloads/<?php echo $userfolder ?>"><strong>Downloaded Products</strong></a>
+        <a target="_blank" href="downloads/<?php echo $userfolder ?>"><strong>Downloaded Products</strong></a>
 
      </div>
 
