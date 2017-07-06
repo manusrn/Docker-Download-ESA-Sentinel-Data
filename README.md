@@ -39,7 +39,7 @@ If you want to link a host repository to the container, the host repository need
 
 # Webpage
 
-The webpage is build with PHP, all the process are execute from the PHP files. The comments in the php files explain how the webpage works.
+The webpage is build with PHP, all the process are executed from the PHP files. The comments in the php files explain how the webpage works.
 
 ## Access the webpage :
 
