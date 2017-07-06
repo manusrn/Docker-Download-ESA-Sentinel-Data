@@ -49,6 +49,10 @@ If you have use the command `docker run -d -p 8888:80 ubuntu-w-Anaconda-sentinel
 
 ![webpage_home](https://github.com/manusrn/img/blob/master/webpage_home.png)
 
+You have to create an account to ESA's Data plateform : https://scihub.copernicus.eu/dhus/#/home .
+
+You can draw the area you need images for here :http://geojson.io/ .
+
 Once you will have press the `Submit` button, you will access this page :
 
 ![webpage_search](https://github.com/manusrn/img/blob/master/webpage_search.png)
