@@ -10,7 +10,7 @@
       <div id="full_page">
         <?php include("header.php") ?>
 
-        <h1> Downloaded folders</h1>
+        <h1> Downloaded zip file</h1>
         <br />
         <a href="index.php"><strong>Homepage</strong></a>
         <br /><br />
@@ -65,7 +65,7 @@
           echo "<br /> <br />All the files have been donwloaded and processed. <br /> <br />";
         ?>
 
-        <a target="_blank" href="downloads/<?php echo $userfolder.zip ?>"><strong>Click here to download the zip file</strong></a>
+        <a target="_blank" href="downloads/<?php echo "$userfolder.zip" ?>"><strong>Click here to download the zip file</strong></a>
 
      </div>
 
