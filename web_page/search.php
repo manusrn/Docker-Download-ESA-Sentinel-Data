@@ -119,22 +119,26 @@
             $cmd_download = $sat." ".$startdate." ".$enddate." ".$cloud." ".$username." ".$password." ".$area ;
 
             ?>
-            <!-- Form directed to the download page. Appears only in search is successful -->
+            <!-- Form directed to the download page. Appears only if search is successful -->
+              <!-- download in folder format -->
                <form method="post" action="download_folder.php" id="downloadfolders">
                    <p>
                      <input type="hidden" name="cmd" value="<?php echo $cmd_download ?>" >
                      <input type="hidden" name="username" value="<?php echo $username ?>" >
                    </p>
                  </form>
-                 <button class='focus' type="submit" form="downloadfolders" value="Submit">Download in folders</button>
+                 <button class='focus' type="submit" form="downloadfolders" value="Submit">Download in folders format</button>
 
-               <form method="post" action="download_zip.php" id="downloadzip">
+              <!-- download in multiple zip format -->
+               <form method="post" action="download_multiple_zip.php" id="downloadmultiplezip">
                    <p>
                      <input type="hidden" name="cmd" value="<?php echo $cmd_download ?>" >
                      <input type="hidden" name="username" value="<?php echo $username ?>" >
                    </p>
                  </form>
-                 <button class='focus' type="submit" form="downloadzip" value="Submit">Download in zip</button>
+                 <button class='focus' type="submit" form="downloadmultiplezip" value="Submit">Download each product in zip format</button>
+
+
             <?php
           }
        ?>
