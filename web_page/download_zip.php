@@ -51,7 +51,7 @@
             // check if the file is a L1C product and is NOT a zip file
             if ((strpos($files_list[$x], 'MSIL1C') !== false )&&(strpos($files_list[$x], 'zip') === false)){
               // Run sen2cor processing of L1C products
-              echo shell_exec("/opt/conda/bin/L2A_Process $depository/$files_list[$x] 2>&1");
+              shell_exec("/opt/conda/bin/L2A_Process $depository/$files_list[$x] 2>&1");
               shell_exec("rm -r $depository/$files_list[$x] 2>&1"); // rm the L1C product
             }
           }
