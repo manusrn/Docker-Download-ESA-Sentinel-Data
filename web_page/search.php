@@ -116,7 +116,7 @@
             fclose($log);
 
             //save the infos needed to launch download
-            $cmd_download = $sat." ".$startdate." ".$enddate." ".$cloud." ".$username." ".$password." ".$area ;
+            $cmd_download = $sat." ".$startdate." ".$enddate." ".$producttype." ".$cloud." ".$username." ".$password." ".$area ;
 
             ?>
             <!-- Form directed to the download page. Appears only if search is successful -->
