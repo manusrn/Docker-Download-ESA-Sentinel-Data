@@ -138,6 +138,14 @@
                  </form>
                  <button class='focus' type="submit" form="downloadmultiplezip" value="Submit">Download each product in zip format</button>
 
+             <!-- download in single zip format -->
+              <form method="post" action="download_single_zip.php" id="downloadsinglezip">
+                  <p>
+                    <input type="hidden" name="cmd" value="<?php echo $cmd_download ?>" >
+                    <input type="hidden" name="username" value="<?php echo $username ?>" >
+                  </p>
+                </form>
+                <button class='focus' type="submit" form="downloadsinglezip" value="Submit">Download all products in one zip file</button>
 
             <?php
           }
