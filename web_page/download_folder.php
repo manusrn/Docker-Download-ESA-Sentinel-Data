@@ -50,7 +50,7 @@
           for ($x = 0; $x <= $nb_files ; $x++){// check for every file or depository in the folder $depository
             // check if the file is a L1C product and is NOT a zip file
             if ((strpos($files_list[$x], 'MSIL1C') !== false )&&(strpos($files_list[$x], 'zip') === false)){
-              shell_exec("/opt/conda/bin/L2A_Process $depository/$files_list[$x]  2>&1");
+              echo shell_exec("/opt/conda/bin/L2A_Process $depository/$files_list[$x]  2>&1");
               shell_exec("rm -r $depository/$files_list[$x]");// rm the L1C depository
             }
           }
