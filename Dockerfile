@@ -30,20 +30,6 @@ RUN apt-get install -y zip
 #Sentinelsat  install (https://github.com/ibamacsr/sentinelsat)
 RUN pip install sentinelsat
 
-#Sen2cor install (from lvhengani : https://github.com/lvhengani/sen2cor_docker)
-ENV SEN2COR_VERSION='2.3.1'
-RUN wget http://step.esa.int/thirdparties/sen2cor/${SEN2COR_VERSION}/sen2cor-${SEN2COR_VERSION}.tar.gz && \
-    tar -xvzf sen2cor-${SEN2COR_VERSION}.tar.gz && \
-    cd sen2cor-${SEN2COR_VERSION} && \
-    /bin/echo -e "y\ny\ny\n" | python setup.py install
-
-RUN	rm sen2cor-${SEN2COR_VERSION}.tar.gz && rm -r /sen2cor-${SEN2COR_VERSION}
-
-#Path environment variables for sen2cor to allow use of sen2cor in command lines, useless with webpage
-ENV SEN2COR_HOME=/root/sen2cor
-ENV SEN2COR_BIN=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor
-ENV GDAL_DATA=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor/cfg/gdal_data
-
 #Install of Apache2 , PHP7 and MySQL
 RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
@@ -67,10 +53,25 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
+#Sen2cor install (from lvhengani : https://github.com/lvhengani/sen2cor_docker)
+ENV SEN2COR_VERSION='2.3.1'
+RUN wget http://step.esa.int/thirdparties/sen2cor/${SEN2COR_VERSION}/sen2cor-${SEN2COR_VERSION}.tar.gz && \
+    tar -xvzf sen2cor-${SEN2COR_VERSION}.tar.gz && \
+    cd sen2cor-${SEN2COR_VERSION} && \
+    /bin/echo -e "y\nn\n/var/www/html/sen2cor\ny\ny\n" | python setup.py install
+
+RUN	rm sen2cor-${SEN2COR_VERSION}.tar.gz && rm -r /sen2cor-${SEN2COR_VERSION}
+
+#Path environment variables for sen2cor to allow use of sen2cor in command lines, useless with webpage
+ENV SEN2COR_HOME=/var/www/html/sen2cor
+ENV SEN2COR_BIN=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor
+ENV GDAL_DATA=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-py2.7.egg/sen2cor/cfg/gdal_data
+
 #Allow PHP to use sen2cor, repositories where sen2cor has to write logs
 RUN chown www-data:www-data /opt/conda/lib/python2.7/site-packages/sen2cor-2.3.1-py2.7.egg/ && \
-    chown www-data:www-data /root/  && \
-    chown www-data:www-data /root/sen2cor/
+    chown www-data:www-data /var/www/html/sen2cor/
+
+
 
 # Adding modified configuration files to allow Apache to access env variables from Sen2cor
 ADD ./conf_files/environment /etc/
