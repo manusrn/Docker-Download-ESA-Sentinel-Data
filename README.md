@@ -63,6 +63,6 @@ You can draw the area you need images for here :http://geojson.io/ .
 
 Once you will have press the `Submit` button, you will access this page :
 
-![webpage_search](https://github.com/manusrn/img/blob/master/webpage_search.png)
+
 
 Once the download and process of the images is done, a folder with your username and the date will have been created, with the products you have downloaded inside.
