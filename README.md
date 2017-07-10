@@ -55,7 +55,7 @@ In your browser, enter the IP address or name of the host sytem ( where the cont
 
 If you have use the command `docker run -d -p 8888:80 download-ESA-Sentinel-Data` on a host with IP address : 192.168.99.100 , in your browser enter `192.168.99.100:8888` to access the webpage.
 
-![webpage_home](https://github.com/manusrn/img/blob/master/webpage_home.png)
+![webpage_home](https://github.com/manusrn/img/blob/master/webpage_home_v2.png)
 
 You have to create an account to ESA's Data plateform : https://scihub.copernicus.eu/dhus/#/home .
 
