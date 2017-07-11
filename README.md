@@ -72,3 +72,10 @@ Once the download and processing of the images is done, a folder with your usern
 - Mutiple zip format : the products are availables inside a folder named "date_username" , with every product in a zipe file.
 
 - Single zip format : the products are availables inside a zip file named "date_username" , with every product in a folder.
+
+
+
+### Improvements :
+
+- Sen2cor uses only one core of the host to process the products. In the L2A_GIPP.xml file, in /conf_files at line 6, you can change the number of simultaneous processes. Set this to "AUTO" could be worth a try to improve the speed of sen2cor processing.
+- Another way could be to use GNU-parallel as adviced here : http://forum.step.esa.int/t/sencor-2-3-0-parallel-processing-on-the-new-format-14-2/4602/8 , and here is th elink to GNU-Parallel pahe : https://www.gnu.org/software/parallel/
