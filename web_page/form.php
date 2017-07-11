@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <style>.focus:focus {color: #14ff00;}</style>
         <link rel="stylesheet" href="style.css" />
         <title>Download Sentinel Data</title>
     </head>
