@@ -65,7 +65,7 @@ Once you will have press the `Submit` button, you will access this page :
 
 ![webpage_search](https://github.com/manusrn/img/blob/master/webpage_search_v2.png)
 
-Once the download and process of the images is done, a folder with your username and the date will have been created, with the products you have downloaded inside. There is 3 format available :
+Once the download and processing of the images is done, a folder with your username and the date will have been created, with the products you have downloaded inside. There is 3 format available :
 
 - Folder format : the products are availables inside a folder named "date_username" in folder format.
 
