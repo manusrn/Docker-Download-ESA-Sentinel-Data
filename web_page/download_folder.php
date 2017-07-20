@@ -20,7 +20,7 @@
           //Creating the user depository, with the format date_username
           $user = $_POST["username"];
           $date = date("Y-m-d-h-i-s");
-          //$date = "0000-00-00-00-00-00" ;  // usefull for testing
+          //$date = "0000-00-00-00-00-00" ;  // useful for testing
           $userfolder = $date."_".$user ;
           $depository = "/var/www/html/downloads/$userfolder";
           mkdir($depository);
