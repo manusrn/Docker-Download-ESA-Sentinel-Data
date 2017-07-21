@@ -71,8 +71,6 @@ ENV GDAL_DATA=/opt/conda/lib/python2.7/site-packages/sen2cor-${SEN2COR_VERSION}-
 RUN chown www-data:www-data /opt/conda/lib/python2.7/site-packages/sen2cor-2.3.1-py2.7.egg/ && \
     chown www-data:www-data /var/www/html/sen2cor/
 
-
-
 # Adding modified configuration files to allow Apache to access env variables from Sen2cor
 ADD ./conf_files/environment /etc/
 ADD ./conf_files/envvars /etc/apache2/
