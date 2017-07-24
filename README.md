@@ -1,6 +1,6 @@
 # Docker-Download-ESA-Sentinel-Data
 
-This docker image allows you to download satellite images from ESA's sentinels. When launced, it display  webpage on the port of your choice, that allows you to search and download sentinel products, based on type, area and date.
+This docker image allows you to download satellite images from ESA's sentinels. When launched, it display  webpage on the port of your choice, which allows you to search and download sentinel products, based on type, area and date.
 
 Docker container based on ubuntu 16.04, added full Anaconda2 to run ESA Sen2cor processing
 
