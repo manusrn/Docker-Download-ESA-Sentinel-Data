@@ -76,7 +76,7 @@ ADD ./conf_files/environment /etc/
 ADD ./conf_files/envvars /etc/apache2/
 
 # Adding sen2cor configuration file, could be useful for multi processing
-ADD ./conf_files/environment /var/www/html/sen2cor/cfg/
+ADD ./conf_files/L2A_GIPP.xml /var/www/html/sen2cor/cfg/
 
 #Move php files to apache repo
 COPY ./web_page  /var/www/html/
